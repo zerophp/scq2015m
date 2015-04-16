@@ -9,7 +9,7 @@
  * @return $filterArray array
  */
 
-function filter($formDefinition, $data) 
+function FilterFormInterface($formDefinition, $data) 
 {
     return $filterArray;
-}º
+}

@@ -82,6 +82,10 @@ return array(
         ),
         'validators'=>array('inArray'=>true)
     ),
+    'submit'=>array(
+        'label'=>'Enviar',
+        'type'=>'submit'                
+    ),
     
     
 );

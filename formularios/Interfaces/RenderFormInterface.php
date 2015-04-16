@@ -9,7 +9,7 @@
  * 
  */
 
-function renderForm($formDefinition, $data = null)
+function RenderFormInterface($formDefinition, $data = null)
 {
     /* Poner código aquí */
     return $html;

@@ -11,8 +11,8 @@
  * 
  */
 
-function ValidatorInterface($formDefinition, $data)
+function ValidateFormInterface($formDefinition, $data)
 {
     /* Codigo aqui */
-    return $array
+    return $array;
 }
