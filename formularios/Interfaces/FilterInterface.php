@@ -2,7 +2,7 @@
 
 /**
  * Return filter data by form definition
- * Available filters: escape, StringTrim, StripTags
+ * Available filters: escape, StringTrim, StripTags, SpecialChar
  *  
  * @param $formDefinition array
  * @param $data array
@@ -12,4 +12,4 @@
 function filter($formDefinition, $data) 
 {
     return $filterArray;
-}
+}º
