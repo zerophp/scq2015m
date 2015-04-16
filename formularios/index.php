@@ -1,6 +1,6 @@
 <?php
 
-$form = array(
+return array(
     'stationName'=>array(
                 'label'=>'Nombre de la estacion',
                 'type'=>'text',
@@ -22,10 +22,9 @@ $form = array(
                 'filters'=> array('Stringtrim', 'StripTags', 'Escape'),
                 'validators'=>array('inArray'=>true,
                                     'required'=>true,
-                                    *'extension'=>array('jpg', 'png')
+                                    'extension'=>array('jpg', 'png')
                                     )
                                 
                 )
-    )    
 );
 

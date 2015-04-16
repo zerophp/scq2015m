@@ -3,13 +3,13 @@
 /**
  * Return html form by definition
  * 
- * @param $formdefinition array
+ * @param $formDefinition array
  * @param $data array
  * @return $html string
  * 
  */
 
-function renderForm($formdefinition, $data = null)
+function renderForm($formDefinition, $data = null)
 {
     /* Poner código aquí */
     return $html;
