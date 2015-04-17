@@ -25,7 +25,7 @@ return array(
         )
     ),
     'password'=>array(
-        'label'=>'Contraseña',
+        'label'=>'ContraseÃ±a',
         'type'=>'password',
         'filters'=> array('Stringtrim', 'StripTags', 'Escape'),
         'validators' => array ('lenghtMax'=>200,
@@ -41,7 +41,7 @@ return array(
     'description'=>array(
         'label'=>'Descripcion',
         'type'=>'textarea',
-        'filters'=> array('Stringtrim', 'StripTags', 'Escape')        
+        'filters'=> array('Stringtrim',  'Escape')        
     ),
     'gender'=>array(
         'label'=>'Sexo',
@@ -68,7 +68,7 @@ return array(
         'type'=>'select',
         'options'=>array('Santiago de Compostela'=>'scq',
             'Vigo' =>'vigo',
-            'A Coruña'=>'aco'
+            'A Coruï¿½a'=>'aco'
         ),
         'validators'=>array('inArray'=>true)
     ),

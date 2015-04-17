@@ -16,42 +16,59 @@ function renderForm($formDefinition, $action, $method='post', $data = null)
    
 	$html = "<form method=\"".$method."\" action=\"".$action."\">"."\n";
     $html.="<ul>";
-    foreach ($formDefinition as $k => $v) {
+    foreach ($formDefinition as $key => $value) {
 
-    	switch($v['type']) {
+    	switch($value['type']) {
     		case 'text':
     		    $html.="<li>";
-    			$html .= "<label>".$v['label']."</label>"."\n";
-    			$html .= "<input type='text' name=\"".$k."\" value='' />"."\n";
+    			$html .= "<label>".$value['label']."</label>"."\n";
+    			$html .= "<input type=\"text\" name=\"".$key."\" value=\"\" >"."\n";
     			$html.="</li>";
     	    break;
-    		case 'radio':
-    			$html .= "<label>".$v['label']."</label><br />";
-    			foreach($v['options'] as $k2 => $v2) 
+    	    
+    	    case 'radio':
+    	        $html.="<li>";
+    	        $html .= "<label>".$value['label']."</label><br />";
+    	        foreach($value['options'] as $key2 => $value2)
+    	        {
+    	    		$html .= "<input type=\"radio\" name=\"".$key."\" value=\"".$value2."\">";
+    				$html .= $key2."<br />"."\n";
+    	        }
+    	        $html.="</li>";
+    	        break;
+    	        
+    		case 'radio2':
+    		    $html.="<li>";
+    			$html .= "<label>".$value['label']."</label><br />";
+    			foreach($value['options'] as $key2 => $value2) 
     			{
 
-    				$html .= "<input type='radio' name=\"".$k."\" value='".$v2."'>".$k2."<";
-    				if ($k2 == 'default_option') {
+    				$html .= "<input type=\"radio\" name=\"".$key."\" value=\"".$value2."\">".$key2."<";
+    				if ($key2 == 'default_option') {
     					$html .= "checked";
     				}
 
-    				$html .= "/><br />"."\n";    			
+    				$html .= "/><br />"."\n";
     			}
-    			
+    			$html.="</li>";
     			break;
     		case 'password':
     		    $html.="<li>";
-        		    $html .= "<label>".$v['label']."</label>";
-        			$html .= "<input type='password' name=\"".$k."\" value='' />"."\n";
+        		    $html .= "<label>".$value['label']."</label>";
+        			$html .= "<input type='password' name=\"".$key."\" value=\"\" />"."\n";
     			$html.="</li>";
     			break;
     		case 'textarea':
-    			$html .= "<label>".$v['label']."</label>"."\n";
-    			$html .= "<textarea name=\"".$k."\" ></textarea>"."\n";
+    		    $html.="<li>";
+    			$html .= "<label>".$value['label']."</label>"."\n";
+    			$html .= "<textarea name=\"".$key."\" ></textarea>"."\n";
+    			$html.="</li>";
     			break;
     		case 'email':
-    			$html .= "<label>".$v['label']."</label>";
-    			$html .= "<input type='email' name=\"".$k."\" value='' />"."\n";
+    		    $html.="<li>";
+    			$html .= "<label>".$value['label']."</label>";
+    			$html .= "<input type=\"email\" name=\"".$key."\" value=\"\" />"."\n";
+    			$html.="</li>";
     			break;
             case 'submit':
                 $html.="<input type=\"submit\" name=\"submit\"/>"."\n";    		    	
