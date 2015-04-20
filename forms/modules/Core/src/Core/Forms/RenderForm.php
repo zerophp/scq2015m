@@ -13,41 +13,6 @@
 
 function renderForm($formDefinition, $action, $method='post', $data = array())
 {
-    
-
-//     echo "<pre>data before ";
-//     print_r($data);
-//     echo "</pre>";
-    /*
-    //variables que envia Get a RenderForm
-    echo "<pre>Get RenderForm: ";
-    print_r($_GET);
-    echo "</pre>";
-    */
-    
-    //Comprobar si es un update($data enviada via GET)
-//     if(!empty($_GET))
-//     {
-//         //Si lo es remplazamos $data
-//         $string=current($_GET);
-//         $data=explode(",",$string);
-//     }
-    //inizializar puntero $data
-
-
-    
-        reset($data);
-    /*
-    //Previsualizar array de datos
-    echo "<pre>data:";
-    print_r($data);
-    echo "</pre>";
-    */
-       
-
-//         echo "<pre>data despues";
-//         print_r($data);
-//         echo "</pre>";
     //Crear string Html
     //primero construir el form
 	$html = "<form method=\"".$method."\" action=\"".$action."\">"."\n";
@@ -59,14 +24,7 @@ function renderForm($formDefinition, $action, $method='post', $data = array())
     	switch($value['type']) {
     	    //dibujar tipo ->nombre=$key,valor=current($data)
     	    case 'hidden':
-//     	        if(empty($_GET)=="")
-//     	        {
-//     	            $html .="<input type=\"hidden\" name=\"".key($_GET)."\" value=\"".current($data)."\">";  
-//     	        }
-//     	        else
-//     	        {   
-    	             $html .="<input type=\"hidden\" name=\"".$key."\" value=\"0\">";  
-//     	        }
+    	             $html .="<input type=\"hidden\" name=\"".$key."\" value=\"".$data['id']."\">";  
     	        break;
     		case 'text':
     		    $html.="<li>";

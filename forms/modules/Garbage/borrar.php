@@ -39,7 +39,7 @@ foreach($_POST as $key => $value)
 //             file_put_contents('users.txt', $user."\n", FILE_APPEND);
 //         }
 //     }
-    include("users.php");
+    include("../Application/src/Application/Controller/users.php");
     //Actualizar archivo
     //Mostrar otra vez la tabla
 

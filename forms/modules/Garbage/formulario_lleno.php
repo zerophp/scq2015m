@@ -1,8 +1,8 @@
 <?php
 
-include ('RenderForm.php');
+include ('../../vendor/acl/Core/src/Core/Forms/RenderForm.php');
 
-$formDefinition = include ('UserForm.php');
+$formDefinition = include ('../Application/src/Application/Forms/UserForm.php');
 
 //obtengo la id de la fila en
 $id = $_GET['id'];
