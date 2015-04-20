@@ -24,7 +24,7 @@
             }
         // Agregar columna options
         echo "<td>";
-        echo "<a href=\"formulario_lleno.php\">Update</a> | ";
+        echo "<a href=\"formulario_lleno.php?id=".$id."\">Update</a> | ";
         echo "<a href=\"deleteForm.php?id=".$id."\">Delete</a>";
         echo "</tr>";
     }        

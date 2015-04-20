@@ -68,7 +68,7 @@ return array(
         'type'=>'select',
         'options'=>array('Santiago de Compostela'=>'scq',
             'Vigo' =>'vigo',
-            'A Coru�a'=>'aco'
+            'A Coruña'=>'aco'
         ),
         'validators'=>array('inArray'=>true)
     ),
