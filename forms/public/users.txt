@@ -3,3 +3,7 @@
 0,Agustin,agustincl@gmail.com,asdasd,2015-04-16,asd,mujer,coche,scq,java,Enviar
 0,a,aaaa@aaa.com,asd,2015-04-15,asdasd,mujer,coche,scq,c++,Enviar
 0,oooo,oooo@ooo.com,asdadasdasd,2015-04-17,asdasd,mujer,coche|motorcycle,scq,php|java|c++,Enviar
+0,oooo,oooo@ooo.com,asdadasdasd,2015-04-17,asdasd,mujer,coche|motorcycle,scq,php|java|c++,Enviar
+0,eeee,eee@eee.com,eeeee,2015-04-03,eeee,mujer,coche,scq,php,Enviar
+0,uuuuu,uuu@uuu.com,uuuu,2015-04-03,uuuu,mujer,coche,scq,java,Enviar
+0,kkkk,kkkk@kkk.com,asdfsadfasd,2015-04-10,sdfsdfsdf,mujer,bicycle,scq,java,Enviar
