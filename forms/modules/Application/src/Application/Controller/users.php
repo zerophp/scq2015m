@@ -2,6 +2,7 @@
 
 switch($request['action'])
 {
+    case 'index':
     case 'select':
         $string = file_get_contents('../data/users.txt');
         $users = explode("\n", $string);
@@ -97,7 +98,7 @@ switch($request['action'])
 // $content = "kaka";
 
 include ("../modules/Application/views/layouts/dashboard.phtml");
-// include ("../modules/Application/views/layouts/jumbotron-narrow.phtml");
+
 
 
 
