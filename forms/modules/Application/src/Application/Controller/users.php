@@ -1,39 +1,32 @@
 <?php
 
+include (VENDOR_PATH."/acl/Core/src/Core/View/renderView.php");
+include (APPLICATION_PATH."/src/Application/Model/getUsers.php");
+include (APPLICATION_PATH."/src/Application/Model/getUser.php");
+include (APPLICATION_PATH."/src/Application/Model/setUser.php");
+include (APPLICATION_PATH."/src/Application/Model/deleteUser.php");
+include (APPLICATION_PATH."/src/Application/Model/patchUser.php");
+include (APPLICATION_PATH."/src/Application/Model/putUser.php");
+
 switch($request['action'])
 {
     case 'index':
     case 'select':
-        $string = file_get_contents('../data/users.txt');
-        $users = explode("\n", $string);
-        
-        ob_start();
-            include ("../modules/Application/views/users/select.phtml");
-            $content = ob_get_contents();
-        ob_end_clean();
-        
+        $users = getUsers();        
+        $content = renderView("../modules/Application/views/users/select.phtml",
+                              array('users'=>$users)
+                    );   
     break;
 
     case 'insert':        
         if($_POST)
         {              
-            foreach($_POST as $key => $value)
-            {                
-                if(!is_array($value))                  
-                    $_POST[$key]=$value;                
-                else                   
-                    $_POST[$key]=implode("|",$value);
-            }            
-            $string = implode(",", $_POST); 
-            file_put_contents('../data/users.txt', $string."\n", FILE_APPEND);
+            $user = setUser($_POST);
             header("Location: /users/select");
         }
         else 
         {
-            ob_start();
-                include("../modules/Application/views/users/insert.phtml");
-                $content = ob_get_contents();
-            ob_end_clean();
+            $content = renderView("../modules/Application/views/users/insert.phtml");
         }
     break;
 
@@ -41,34 +34,15 @@ switch($request['action'])
         echo "esto es update";
         if ($_POST)
         {
-            $users = file('../data/users.txt');      
-            foreach($_POST as $key => $value)
-            {                
-                if(!is_array($value))
-                    $_POST[$key]=$value;
-                else                    
-                    $_POST[$key]=implode("|",$value);
-            }
-            $id = $_POST['id'];            
-            $users[$id] = implode(",", $_POST)."\n";            
-            if(file_put_contents('../data/users.txt', $users))
+            $user = putUser($_POST['id'], $_POST);
             header("Location: /users/select");
         }
         else
         {                       
-            //obtengo la id de la fila en
-            $id =  $request['params']['id'];
-            //obtengo el archivo de texto
-            $fileData = file_get_contents('../data/users.txt');
-            $fileLines = explode("\n", $fileData);            
-            //get the user, and split it by ',' into a array
-            $fieldsLine = explode(",", $fileLines[$id]);   
-            
-            
-            ob_start();
-                include ("../modules/Application/views/users/update.phtml");
-                $content = ob_get_contents();
-            ob_end_clean();
+            $user = getUser($request['params']['id']);
+            $content = renderView("../modules/Application/views/users/update.phtml",
+                              array('fieldsLine'=>$user)
+                    );
         }
     break;
 
@@ -78,19 +52,16 @@ switch($request['action'])
         {
             if ($_POST['borrar'] === "SI")
             {
-                $users = file_get_contents('../data/users.txt');
-                $users = explode("\n", $users);
-                unset($users[$_POST['id']]);                
-                file_put_contents('../data/users.txt', implode("\n",$users));
+                deleteUser($_POST['id']);
             }               
             header("Location: /users/select");    
         }
         else
         {     
-            ob_start();
-                include ("../modules/Application/views/users/delete.phtml");  
-                $content = ob_get_contents();
-            ob_end_clean();
+            $user = getUser($request['params']['id']);
+            $content = renderView("../modules/Application/views/users/delete.phtml",
+                array('user'=>$user)
+            );
         }
     break;
 }
@@ -98,8 +69,3 @@ switch($request['action'])
 // $content = "kaka";
 
 include ("../modules/Application/views/layouts/dashboard.phtml");
-
-
-
-
-
