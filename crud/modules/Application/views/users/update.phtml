@@ -1,0 +1,17 @@
+<?php 
+$fieldsLine = $viewData['fieldsLine'];
+
+include (VENDOR_PATH.'/acl/Core/src/Core/Forms/RenderForm.php');
+$formDefinition = include (APPLICATION_PATH.'/src/Application/Forms/UserForm.php');
+$data = array();    //initialize the data as a array
+$userFieldsIndex = 0;
+foreach ($formDefinition as $fieldName => $fieldAttributes)
+{
+    $valuesField = $fieldsLine[$userFieldsIndex];
+    $data[$fieldName] = $valuesField;
+    $userFieldsIndex = $userFieldsIndex + 1;
+}
+
+$data['id'] = $id;
+
+echo(renderForm($formDefinition, '/users/update', 'post', $data));
