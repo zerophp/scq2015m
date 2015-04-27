@@ -12,7 +12,7 @@ switch($request['action'])
 {
     case 'index':
     case 'select':
-        $users = getUsers($config['database']);  
+        $users = getUsers($config['database']);        
         $content = renderView("../modules/Application/views/crud/select.phtml",
                               array('users'=>$users)
                     );   
@@ -21,13 +21,12 @@ switch($request['action'])
     case 'insert':        
         if($_POST)
         {              
-            $user = setUser($_POST, $config['database']);
+            $user = setUser($_POST);
             header("Location: /crud/select");
         }
         else 
         {
-            $content = renderView("../modules/Application/views/crud/insert.phtml",
-                                  array('configDatabase'=>$config['database']));
+            $content = renderView("../modules/Application/views/crud/insert.phtml");
         }
     break;
 
@@ -40,7 +39,7 @@ switch($request['action'])
         }
         else
         {                       
-            $user = getUser($request['params']['id']);
+            $user = getUser($config['database'], $request['params']['id']);
             $content = renderView("../modules/Application/views/crud/update.phtml",
                               array('fieldsLine'=>$user)
                     );
@@ -53,13 +52,13 @@ switch($request['action'])
         {
             if ($_POST['borrar'] === "SI")
             {
-                deleteUser($_POST['id']);
+                deleteUser($_POST['id'] , $config['database']);
             }               
             header("Location: /crud/select");    
         }
         else
         {     
-            $user = getUser($request['params']['id']);
+            $user = getUser($config['database'], $request['params']['id']);
             $content = renderView("../modules/Application/views/crud/delete.phtml",
                 array('user'=>$user)
             );

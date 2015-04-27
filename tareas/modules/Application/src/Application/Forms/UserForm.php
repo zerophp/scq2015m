@@ -1,10 +1,4 @@
 <?php
-
-include (APPLICATION_PATH."/src/Application/Model/db/getTransports.php");
-include (VENDOR_PATH."/acl/Core/src/Core/Forms/readFields.php");
-
-$transports = getTransports($config);
-
 return array(
     'id'=>array(
         'type'=>'hidden',
@@ -60,14 +54,13 @@ return array(
                             'required'=>true
         )    
     ),
-    'idtransport'=>array(
+    'transport'=>array(
         'label'=>'Tipo de transporte',
         'type'=>'checkbox',
-//         'options'=>array('Coche'=>'coche',
-//                         'Bicicleta' =>'bicycle',
-//                         'Moto'=>'motorcycle'
-//         ),
-        'options'=> readFields($transports),
+        'options'=>array('Coche'=>'coche',
+                        'Bicicleta' =>'bicycle',
+                        'Moto'=>'motorcycle'
+        ),
         'validators'=>array('inArray'=>true)
     ),
     'city'=>array(

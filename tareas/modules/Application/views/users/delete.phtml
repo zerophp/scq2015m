@@ -1,0 +1,9 @@
+<?php 
+$user = $viewData['user'];
+?>
+<form method ="POST" action="/users/delete">
+    Estas seguro que queires borrar el usuario: <?=$user['name'];?>?
+    <input type="hidden" name="id" value="<?=$request['params']['id'];?>"/>
+    <input name="borrar" value="SI" type ="submit"/>
+    <input name="borrar" value="NO" type ="submit"/>
+</form>

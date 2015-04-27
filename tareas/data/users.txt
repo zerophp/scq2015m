@@ -1,0 +1,6 @@
+0,Agustin,agustincl@gmail.com,asd,2015-04-15,asd,mujer,coche,scq,c++,Enviar
+0,aaasd@asd.com,aksjlhakjsdh@alkdja,aslkjalksjd,2015-04-10,asdasd,mujer,coche,scq,php,Enviar
+0,Andrés,sr.gil.arias@gmail.com,mierdapalperro,1978-06-23,Mola mazo,hombre,scq,Enviar
+0,Aliatha,ali@ali.com,ali,1985-03-16,Aliothadas,mujer,coche|bicycle|motorcycle,vigo,php|c++,Enviar
+,Andrés,sr.gil.arias@gmail.com,mierdapalperro,1978-06-23,Mola mazo,hombre,coche|bicycle|motorcycle,scq,otros,Enviar
+,Andrés,sr.gil.arias@gmail.com,mierdapalperro,1978-06-23,Mola mazo,hombre,motorcycle,scq,c++,Enviar

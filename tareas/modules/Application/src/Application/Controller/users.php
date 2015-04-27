@@ -1,19 +1,19 @@
 <?php
 
 include (VENDOR_PATH."/acl/Core/src/Core/View/renderView.php");
-include (APPLICATION_PATH."/src/Application/Model/db/getUsers.php");
-include (APPLICATION_PATH."/src/Application/Model/db/getUser.php");
-include (APPLICATION_PATH."/src/Application/Model/db/setUser.php");
-include (APPLICATION_PATH."/src/Application/Model/db/deleteUser.php");
-include (APPLICATION_PATH."/src/Application/Model/db/patchUser.php");
-include (APPLICATION_PATH."/src/Application/Model/db/putUser.php");
+include (APPLICATION_PATH."/src/Application/Model/getUsers.php");
+include (APPLICATION_PATH."/src/Application/Model/getUser.php");
+include (APPLICATION_PATH."/src/Application/Model/setUser.php");
+include (APPLICATION_PATH."/src/Application/Model/deleteUser.php");
+include (APPLICATION_PATH."/src/Application/Model/patchUser.php");
+include (APPLICATION_PATH."/src/Application/Model/putUser.php");
 
 switch($request['action'])
 {
     case 'index':
     case 'select':
-        $users = getUsers($config['database']);  
-        $content = renderView("../modules/Application/views/crud/select.phtml",
+        $users = getUsers();        
+        $content = renderView("../modules/Application/views/users/select.phtml",
                               array('users'=>$users)
                     );   
     break;
@@ -21,13 +21,12 @@ switch($request['action'])
     case 'insert':        
         if($_POST)
         {              
-            $user = setUser($_POST, $config['database']);
-            header("Location: /crud/select");
+            $user = setUser($_POST);
+            header("Location: /users/select");
         }
         else 
         {
-            $content = renderView("../modules/Application/views/crud/insert.phtml",
-                                  array('configDatabase'=>$config['database']));
+            $content = renderView("../modules/Application/views/users/insert.phtml");
         }
     break;
 
@@ -36,12 +35,12 @@ switch($request['action'])
         if ($_POST)
         {
             $user = putUser($_POST['id'], $_POST);
-            header("Location: /crud/select");
+            header("Location: /users/select");
         }
         else
         {                       
             $user = getUser($request['params']['id']);
-            $content = renderView("../modules/Application/views/crud/update.phtml",
+            $content = renderView("../modules/Application/views/users/update.phtml",
                               array('fieldsLine'=>$user)
                     );
         }
@@ -55,12 +54,12 @@ switch($request['action'])
             {
                 deleteUser($_POST['id']);
             }               
-            header("Location: /crud/select");    
+            header("Location: /users/select");    
         }
         else
         {     
             $user = getUser($request['params']['id']);
-            $content = renderView("../modules/Application/views/crud/delete.phtml",
+            $content = renderView("../modules/Application/views/users/delete.phtml",
                 array('user'=>$user)
             );
         }
