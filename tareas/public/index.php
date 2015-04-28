@@ -1,6 +1,5 @@
 <?php
 
-
 define ("APPLICATION_PATH", "../modules/Application");
 define ("VENDOR_PATH", "../vendor");
 define ("ROOT_PATH", "../");
@@ -10,9 +9,12 @@ include ("../vendor/acl/Core/src/Core/readConfig.php");
 $config = readConfig('../configs/application.config.php');
 
 
-// echo "<pre>config: ";
+// include ("/modules/acl/Core/src/Core/readConfig.php");
+// $config = readConfig('/modules/acl/Core/src/Core/readConfig.php');
+
+//     echo "<pre>config: ";
 //     print_r($config);
-// echo "</pre>";
+//     echo "</pre>";
 
 include ("../vendor/acl/Core/src/Core/Controller/Helper/parseUrl.php");
 
@@ -39,4 +41,5 @@ switch($request['controller'])
     case 'crud':
         include ("../modules/Application/src/Application/Controller/crud.php");
     break;
+    
 }

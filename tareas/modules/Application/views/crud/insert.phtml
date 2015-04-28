@@ -1,6 +1,12 @@
 <?php 
+$config = $viewData['configDatabase'];
 
-include(VENDOR_PATH.'/acl/Core/src/Core/crud/RenderForm.php');
+// echo "<pre>";
+// print_r($config);
+// echo "</pre>";
+// die("aqui");
+
+include(VENDOR_PATH.'/acl/Core/src/Core/Forms/RenderForm.php');
 
 $userForm = include (APPLICATION_PATH.'/src/Application/Forms/UserForm.php');
 
