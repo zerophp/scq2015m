@@ -1,15 +1,20 @@
 <?php
 
+require ("../autoload.php");
+
 define ("APPLICATION_PATH", "../modules/Application");
 define ("VENDOR_PATH", "../vendor");
 define ("ROOT_PATH", "../");
-
-include ("../vendor/acl/Core/src/Core/Config.php");
-include ("../vendor/acl/Core/src/Core/Controller/Dispatch.php");
-include ("../vendor/acl/Core/src/Core/Controller/Helper/Router.php");
+define ("RPATH", $_SERVER['DOCUMENT_ROOT']."/..");
 
 $routes = include ("../configs/routes.config.php");
 
+use acl\Core\Controller\Dispatch;
+use acl\Core\Config;
+use acl\Core\Controller\Helper\Router;
+
 $config = Config::readConfig('../configs/application.config.php');
 $request = Router::readRoute($_SERVER['REQUEST_URI'], $routes);
-$responde = Dispatch::dispatcher($request);
+$response = Dispatch::dispatcher($request);
+
+echo $response;
