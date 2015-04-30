@@ -2,6 +2,7 @@
 
 require ("../autoload.php");
 
+define ("MODULE_PATH", "../modules");
 define ("APPLICATION_PATH", "../modules/Application");
 define ("VENDOR_PATH", "../vendor");
 define ("ROOT_PATH", "../");

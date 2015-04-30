@@ -1,0 +1,23 @@
+<?php 
+$datas = $viewData['timelines'];
+?>
+<h1 class="page-header">Timelines</h1>
+
+<a href="/timeline/insert">Insert</a>
+<div class="table-responsive">
+<table class="table table-striped">
+    <?php foreach($datas as $id => $data):?>
+        <tr>
+           <?php 
+            //$user = explode(",", $user);
+            foreach ($data as $value):?>               
+                <td><?php echo $value;?></td>
+            <?php endforeach; ?>
+            <td>
+                <a href="/timeline/update/idtimeline/<?=$data['idtimeline'];?>">Update</a> | 
+                <a href="/timeline/delete/idtimeline/<?=$data['idtimeline'];?>">Delete</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+</div>

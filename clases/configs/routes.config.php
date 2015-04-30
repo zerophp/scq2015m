@@ -1,8 +1,9 @@
 <?php
-return array ('crud'=>array(
-    'module'        => 'Crud',
-    'controller'    => 'Crud'
-),
+return array (
+    'crud'=>array(
+        'module'        => 'Crud',
+        'controller'    => 'Crud'
+    ),
     'micrud'=>array(
         'module'        => 'Crud',
         'controller'    => 'Crud'
@@ -10,5 +11,9 @@ return array ('crud'=>array(
     'users'=>array(
         'module'        => 'Application',
         'controller'    => 'User'
+    ),
+    'timeline'=>array(
+        'module'        => 'Timeline',
+        'controller'    => 'Crud'
     ),
 );

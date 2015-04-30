@@ -1,0 +1,19 @@
+<?php 
+$fieldsLine = $viewData['fieldsLine'][0];
+
+
+include (VENDOR_PATH.'/acl/Core/src/Core/Forms/RenderForm.php');
+
+$formDefinition = include (MODULE_PATH.'/Timeline/src/Timeline/Form/TimelineForm.php');
+// $data = array();    //initialize the data as a array
+// $userFieldsIndex = 0;
+// foreach ($formDefinition as $fieldName => $fieldAttributes)
+// {
+//     $valuesField = $fieldsLine[$userFieldsIndex];
+//     $data[$fieldName] = $valuesField;
+//     $userFieldsIndex = $userFieldsIndex + 1;
+// }
+
+$fieldsLine['id'] = $fieldsLine['idtimeline'];
+
+echo(renderForm($formDefinition, '/timeline/update', 'post', $fieldsLine));
